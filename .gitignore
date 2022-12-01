@@ -12,3 +12,4 @@
 !*.json
 !Doxyfile
 !*/
+!*.txt
