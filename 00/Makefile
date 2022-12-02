@@ -3,7 +3,7 @@ SHELL=bash
 
 APP_NAME=$(shell basename $(shell pwd))
 
-INCL_DIRS=.
+INCL_DIRS=../common
 SRCS = ${wildcard *.c }
 OBJS = ${patsubst %.c,%.o,${SRCS}}
 
@@ -18,7 +18,7 @@ all: clean ${APP_NAME}
 debug: CFLAGS += -g -ggdb3 -O0 -U_FORTIFY_SOURCE
 debug: all
 
-${APP_NAME}: ${OBJS}
+${APP_NAME}: ${OBJS} ${ABS_COMMONOBJS}
 	@echo -e "\033[0;93m[LD]\033[0m \t\033[0;1m$@\033[0m"
 	@${CC} -o $@ $^ ${CFLAGS} ${LDFLAGS}
 
