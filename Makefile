@@ -36,7 +36,7 @@ clean:
 
 # clang-tidy
 tidy:
-	@for src in $(SRCS) ; do \
+	@for src in $(SRCS) $(COMMONSRCS) ; do \
 		echo "Running tidy on $$src..." ; \
 		clang-tidy \
 			"$$src" \
